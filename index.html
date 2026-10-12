@@ -97,6 +97,7 @@ button{font-family:inherit;cursor:pointer}
 .subject-tags{display:flex;flex-wrap:wrap;gap:8px}
 .subject-tag{font-size:13px;color:var(--accent);background:var(--accent-soft);padding:3px 12px;border-radius:999px;font-weight:600}
 .teacher-grades{font-size:13px;color:var(--muted)}
+.teacher-score{display:inline-block;font-size:13px;font-weight:700;color:#8a6d1a;background:var(--gold-soft);border:1px solid #ecd9a0;padding:2px 12px;border-radius:999px;align-self:flex-start}
 .teacher-intro{font-size:14px;color:var(--ink);border-top:1px dashed var(--line);padding-top:12px}
 .teacher-note{text-align:center;font-size:13px;color:var(--muted);margin-top:28px}
 .teacher-note a{color:var(--accent);font-weight:600}
@@ -508,7 +509,17 @@ var teachers = [
   { id:3, name:"王老师", school:"华东师范大学", major:"汉语言文学", subjects:["语文"], grades:"小学 · 初中 · 高中语文", intro:"师范科班出身,擅长阅读与写作训练,课堂生动,注重语文素养积累。", avatar:"https://aka.doubaocdn.com/s/OmHHVyd86X" },
   { id:4, name:"张老师", school:"复旦大学", major:"临床医学", subjects:["化学","生物"], grades:"高中化学 · 生物", intro:"擅长理科综合,用体系化方法帮学生吃透重难点,笔记整理是一绝。", avatar:"https://aka.doubaocdn.com/s/0FUOjIwA8G" },
   { id:5, name:"赵老师", school:"同济大学", major:"英语", subjects:["英语"], grades:"小学 · 初中 · 高中英语", intro:"英语专业出身,口语流利,擅长语法梳理与应试技巧,提分见效快。", avatar:"https://aka.doubaocdn.com/s/aDbuoz6LBV" },
-  { id:6, name:"孙老师", school:"华东师范大学", major:"数学与应用数学", subjects:["数学"], grades:"小学 · 初中数学", intro:"师范专业,擅长启发式教学,帮孩子打牢数学基础,建立学习信心。", avatar:"https://aka.doubaocdn.com/s/R38cRVGnSx" }
+  { id:6, name:"孙老师", school:"华东师范大学", major:"数学与应用数学", subjects:["数学"], grades:"小学 · 初中数学", intro:"师范专业,擅长启发式教学,帮孩子打牢数学基础,建立学习信心。", avatar:"https://aka.doubaocdn.com/s/R38cRVGnSx" },
+  { id:7, name:"周老师", school:"复旦大学", major:"数学与应用数学", subjects:["数学","物理"], grades:"高中数学 · 物理", score:"647", intro:"高考 647 分,数学单科 147,全国高中数学联赛省级一等奖。擅长压轴题突破与一题多解训练,带过多届高三冲刺学生。", avatar:"https://aka.doubaocdn.com/s/KIi2gxiI2A" },
+  { id:8, name:"吴老师", school:"复旦大学", major:"物理学", subjects:["物理","数学"], grades:"高中物理 · 数学", score:"643", intro:"高考 643 分,物理单科接近满分,现攻读物理方向博士。擅长把抽象物理讲成直观模型,帮学生建立物理直觉。", avatar:"https://aka.doubaocdn.com/s/YZiN2wGg9y" },
+  { id:9, name:"郑老师", school:"复旦大学", major:"化学", subjects:["化学","生物"], grades:"高中化学 · 生物", score:"640", intro:"高考 640 分,化学奥林匹克竞赛省级二等奖,曾担任竞赛班助教。擅长化学方程式、实验题与推断题的体系化讲解。", avatar:"https://aka.doubaocdn.com/s/rZVq4FfgWl" },
+  { id:10, name:"钱老师", school:"复旦大学", major:"英语语言文学", subjects:["英语"], grades:"初高中英语", score:"632", intro:"高考 632 分,英语单科 142,英语专业八级、雅思 8.0。擅长语法体系构建、完形阅读技巧与作文升格,提分路径清晰。", avatar:"https://aka.doubaocdn.com/s/YsIMzy8xW3" },
+  { id:11, name:"冯老师", school:"复旦大学", major:"临床医学(八年制)", subjects:["化学","生物"], grades:"高中化学 · 生物", score:"645", intro:"高考 645 分,临床医学八年制在读。理科综合均衡,擅长查漏补缺与易错点整理,笔记模板广受学生好评。", avatar:"https://aka.doubaocdn.com/s/X7UjTa5tPU" },
+  { id:12, name:"何老师", school:"复旦大学", major:"经济学", subjects:["数学","英语"], grades:"高中数学 · 英语", score:"651", intro:"高考 651 分,数学单科 148。擅长用费曼学习法帮学生把知识真正讲透,耐心细致,沟通能力强。", avatar:"https://aka.doubaocdn.com/s/ppvJbVLgDd" },
+  { id:13, name:"沈老师", school:"复旦大学", major:"汉语言文学", subjects:["语文"], grades:"初高中语文", score:"637", intro:"高考 637 分,语文单科 128。擅长现代文阅读鉴赏与议论文写作,作文升格训练效果明显。", avatar:"https://aka.doubaocdn.com/s/T4bGqUoNrZ" },
+  { id:14, name:"韩老师", school:"复旦大学", major:"计算机科学与技术", subjects:["数学","物理"], grades:"高中数学 · 物理", score:"658", intro:"高考 658 分,数学单科满分 150,信息学竞赛省级一等奖。逻辑极强,擅长理科思维训练与难题层层拆解。", avatar:"https://aka.doubaocdn.com/s/g5eUSn6rXf" },
+  { id:15, name:"蒋老师", school:"复旦大学", major:"历史学", subjects:["历史","语文"], grades:"高中历史 · 初中语文", score:"634", intro:"高考 634 分,历史单科 94。擅长史实脉络梳理与材料题答题模板,帮文科生快速建立答题手感。", avatar:"https://aka.doubaocdn.com/s/beA3o8FqtV" },
+  { id:16, name:"曹老师", school:"复旦大学", major:"生命科学", subjects:["生物","化学"], grades:"高中生物 · 初中理化", score:"641", intro:"高考 641 分,生物单科接近满分,生命科学竞赛国赛经历。擅长用生活化案例讲透抽象概念,课堂生动。", avatar:"https://aka.doubaocdn.com/s/uTLn2UmZ22" }
 ];
 
 function cardHtml(t){
@@ -524,6 +535,7 @@ function cardHtml(t){
       '</div>' +
       '<div class="subject-tags">' + t.subjects.map(function(s){ return '<span class="subject-tag">' + s + '</span>'; }).join("") + '</div>' +
       '<div class="teacher-grades">' + t.grades + '</div>' +
+      (t.score ? '<div class="teacher-score">高考 ' + t.score + ' 分</div>' : '') +
       '<p class="teacher-intro">' + t.intro + '</p>' +
     '</article>'
   );
