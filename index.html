@@ -98,6 +98,13 @@ button{font-family:inherit;cursor:pointer}
 .subject-tag{font-size:13px;color:var(--accent);background:var(--accent-soft);padding:3px 12px;border-radius:999px;font-weight:600}
 .teacher-grades{font-size:13px;color:var(--muted)}
 .teacher-score{display:inline-block;font-size:13px;font-weight:700;color:#8a6d1a;background:var(--gold-soft);border:1px solid #ecd9a0;padding:2px 12px;border-radius:999px;align-self:flex-start}
+.teacher-more{cursor:pointer;justify-content:center;align-items:center;text-align:center;gap:12px;background:linear-gradient(180deg,#fff,#f4f8fd);border-style:dashed;border-width:1.5px;transition:box-shadow .2s,transform .2s,border-color .2s}
+.teacher-more:hover{border-color:var(--accent);box-shadow:var(--shadow);transform:translateY(-2px)}
+.teacher-more-icon{width:56px;height:56px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-size:32px;font-weight:600;line-height:1;display:flex;align-items:center;justify-content:center}
+.teacher-more-title{font-size:18px;font-weight:700;color:var(--ink)}
+.teacher-more-desc{font-size:13px;color:var(--muted);max-width:230px}
+.teacher-more-btn{font-size:14px;font-weight:600;color:#fff;background:var(--accent);border-radius:999px;padding:9px 24px;transition:background .2s}
+.teacher-more:hover .teacher-more-btn{background:var(--accent-dark)}
 .teacher-intro{font-size:14px;color:var(--ink);border-top:1px dashed var(--line);padding-top:12px}
 .teacher-note{text-align:center;font-size:13px;color:var(--muted);margin-top:28px}
 .teacher-note a{color:var(--accent);font-weight:600}
@@ -504,12 +511,12 @@ button{font-family:inherit;cursor:pointer}
 <script>
 /* ============ 老师数据(示例,上线前请替换为真实老师信息) ============ */
 var teachers = [
-  { id:1, name:"陈老师", school:"复旦大学", major:"数学与应用数学", subjects:["数学","物理"], grades:"高中数学 · 物理", intro:"高考数学 145+,擅长帮学生搭建解题思路与知识框架,讲课清晰有条理。", avatar:"https://aka.doubaocdn.com/s/SwV5XvlBzQ" },
-  { id:2, name:"李老师", school:"同济大学", major:"土木工程", subjects:["数学","物理","化学"], grades:"初中数理化", intro:"耐心细致,擅长基础巩固与学习方法引导,特别受低年级孩子欢迎。", avatar:"https://aka.doubaocdn.com/s/eBwv2ChbZy" },
-  { id:3, name:"王老师", school:"华东师范大学", major:"汉语言文学", subjects:["语文"], grades:"小学 · 初中 · 高中语文", intro:"师范科班出身,擅长阅读与写作训练,课堂生动,注重语文素养积累。", avatar:"https://aka.doubaocdn.com/s/OmHHVyd86X" },
-  { id:4, name:"张老师", school:"复旦大学", major:"临床医学", subjects:["化学","生物"], grades:"高中化学 · 生物", intro:"擅长理科综合,用体系化方法帮学生吃透重难点,笔记整理是一绝。", avatar:"https://aka.doubaocdn.com/s/0FUOjIwA8G" },
-  { id:5, name:"赵老师", school:"同济大学", major:"英语", subjects:["英语"], grades:"小学 · 初中 · 高中英语", intro:"英语专业出身,口语流利,擅长语法梳理与应试技巧,提分见效快。", avatar:"https://aka.doubaocdn.com/s/aDbuoz6LBV" },
-  { id:6, name:"孙老师", school:"华东师范大学", major:"数学与应用数学", subjects:["数学"], grades:"小学 · 初中数学", intro:"师范专业,擅长启发式教学,帮孩子打牢数学基础,建立学习信心。", avatar:"https://aka.doubaocdn.com/s/R38cRVGnSx" },
+  { id:1, name:"陈老师", school:"复旦大学", major:"数学与应用数学", subjects:["数学","物理"], grades:"高中数学 · 物理", score:"645", intro:"高考 645 分,高考数学 145+,擅长帮学生搭建解题思路与知识框架,讲课清晰有条理。", avatar:"https://aka.doubaocdn.com/s/SwV5XvlBzQ" },
+  { id:2, name:"李老师", school:"同济大学", major:"土木工程", subjects:["数学","物理","化学"], grades:"初中数理化", score:"612", intro:"高考 612 分,耐心细致,擅长基础巩固与学习方法引导,特别受低年级孩子欢迎。", avatar:"https://aka.doubaocdn.com/s/eBwv2ChbZy" },
+  { id:3, name:"王老师", school:"华东师范大学", major:"汉语言文学", subjects:["语文"], grades:"小学 · 初中 · 高中语文", score:"605", intro:"高考 605 分,师范科班出身,擅长阅读与写作训练,课堂生动,注重语文素养积累。", avatar:"https://aka.doubaocdn.com/s/OmHHVyd86X" },
+  { id:4, name:"张老师", school:"复旦大学", major:"临床医学", subjects:["化学","生物"], grades:"高中化学 · 生物", score:"648", intro:"高考 648 分,擅长理科综合,用体系化方法帮学生吃透重难点,笔记整理是一绝。", avatar:"https://aka.doubaocdn.com/s/0FUOjIwA8G" },
+  { id:5, name:"赵老师", school:"同济大学", major:"英语", subjects:["英语"], grades:"小学 · 初中 · 高中英语", score:"610", intro:"高考 610 分,英语专业出身,口语流利,擅长语法梳理与应试技巧,提分见效快。", avatar:"https://aka.doubaocdn.com/s/aDbuoz6LBV" },
+  { id:6, name:"孙老师", school:"华东师范大学", major:"数学与应用数学", subjects:["数学"], grades:"小学 · 初中数学", score:"602", intro:"高考 602 分,师范专业,擅长启发式教学,帮孩子打牢数学基础,建立学习信心。", avatar:"https://aka.doubaocdn.com/s/R38cRVGnSx" },
   { id:7, name:"周老师", school:"复旦大学", major:"数学与应用数学", subjects:["数学","物理"], grades:"高中数学 · 物理", score:"647", intro:"高考 647 分,数学单科 147,全国高中数学联赛省级一等奖。擅长压轴题突破与一题多解训练,带过多届高三冲刺学生。", avatar:"https://aka.doubaocdn.com/s/KIi2gxiI2A" },
   { id:8, name:"吴老师", school:"复旦大学", major:"物理学", subjects:["物理","数学"], grades:"高中物理 · 数学", score:"643", intro:"高考 643 分,物理单科接近满分,现攻读物理方向博士。擅长把抽象物理讲成直观模型,帮学生建立物理直觉。", avatar:"https://aka.doubaocdn.com/s/YZiN2wGg9y" },
   { id:9, name:"郑老师", school:"复旦大学", major:"化学", subjects:["化学","生物"], grades:"高中化学 · 生物", score:"640", intro:"高考 640 分,化学奥林匹克竞赛省级二等奖,曾担任竞赛班助教。擅长化学方程式、实验题与推断题的体系化讲解。", avatar:"https://aka.doubaocdn.com/s/rZVq4FfgWl" },
@@ -546,9 +553,19 @@ var teacherGrid = document.getElementById("teacherGrid");
 var filtersWrap = document.getElementById("filters");
 var currentFilter = "全部";
 
+function moreCardHtml(){
+  return (
+    '<article class="teacher-card teacher-more" role="button" tabindex="0" aria-label="更多老师,请联系我们">' +
+      '<div class="teacher-more-icon">+</div>' +
+      '<div class="teacher-more-title">更多老师</div>' +
+      '<div class="teacher-more-desc">平台共有 2000+ 位 985 学霸老师,涵盖各学科、各年级</div>' +
+      '<div class="teacher-more-btn">请联系我们</div>' +
+    '</article>'
+  );
+}
 function renderTeachers(){
   var list = currentFilter === "全部" ? teachers : teachers.filter(function(t){ return t.subjects.indexOf(currentFilter) !== -1; });
-  teacherGrid.innerHTML = list.map(cardHtml).join("");
+  teacherGrid.innerHTML = list.map(cardHtml).join("") + moreCardHtml();
 }
 function renderFilters(){
   var all = ["全部"];
@@ -566,7 +583,18 @@ filtersWrap.addEventListener("click", function(e){
 });
 
 /* 师资实力页老师 */
-document.getElementById("teacherGrid2").innerHTML = teachers.map(cardHtml).join("");
+document.getElementById("teacherGrid2").innerHTML = teachers.map(cardHtml).join("") + moreCardHtml();
+
+/* 更多老师卡片:跳转到首页联系表单 */
+document.addEventListener("click", function(e){
+  var more = e.target.closest(".teacher-more");
+  if (!more) return;
+  if (location.hash !== "#/") location.hash = "#/";
+  setTimeout(function(){
+    var el = document.getElementById("apply");
+    if (el) el.scrollIntoView({ behavior:"smooth" });
+  }, 150);
+});
 
 renderFilters();
 renderTeachers();
