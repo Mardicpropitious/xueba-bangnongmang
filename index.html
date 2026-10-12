@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>学霸帮侬忙 — 上海 985 高校学霸家教</title>
+<meta name="description" content="「学霸帮侬忙」上海杨浦区老牌家教平台,紧邻复旦运营5年。复旦大学、同济大学、华东师范大学等上海本地高校学霸,一对一上门或线上辅导。">
+<style>
+/* ============ 基础与变量 ============ */
+:root{
+  --bg:#ffffff;
+  --bg-soft:#f4f6fa;
+  --ink:#17242f;
+  --muted:#5c6b7a;
+  --line:#e4e9ef;
+  --accent:#1f5ad6;
+  --accent-dark:#1747b0;
+  --accent-soft:#eef3fc;
+  --gold:#b8860b;
+  --gold-soft:#fdf6e3;
+  --radius:12px;
+  --shadow:0 1px 2px rgba(23,36,47,.05),0 8px 24px rgba(23,36,47,.06);
+  --maxw:1120px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC","Helvetica Neue",Arial,sans-serif;
+  color:var(--ink);background:var(--bg);line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ============ 顶部导航 ============ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;letter-spacing:.5px}
+.brand svg{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:24px;font-size:15px;color:var(--muted)}
+.nav-links a{transition:color .2s;padding:6px 2px}
+.nav-links a:hover{color:var(--accent)}
+.nav-links a.active{color:var(--accent);font-weight:600}
+.nav-cta{background:var(--accent);color:#fff;border:none;border-radius:999px;padding:10px 22px;font-size:15px;font-weight:600;transition:background .2s}
+.nav-cta:hover{background:var(--accent-dark)}
+.nav-toggle{display:none;background:none;border:1px solid var(--line);border-radius:8px;padding:8px;line-height:0}
+.nav-toggle svg{color:var(--ink)}
+
+/* ============ 主视觉 Hero ============ */
+.hero{padding:150px 0 84px;background:radial-gradient(900px 420px at 85% -10%,rgba(31,90,214,.08),transparent 60%),var(--bg);border-bottom:1px solid var(--line)}
+.hero .wrap{max-width:840px;text-align:center}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--accent);font-weight:600;background:var(--accent-soft);border:1px solid #dbe6fa;padding:6px 16px;border-radius:999px;margin-bottom:28px}
+.hero h1{font-size:56px;line-height:1.2;font-weight:800;letter-spacing:1px}
+.hero h1 .hl{color:var(--accent)}
+.hero-sub{margin:24px auto 0;max-width:660px;font-size:18px;color:var(--muted)}
+.hero-actions{display:flex;gap:14px;justify-content:center;margin-top:38px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:14px 32px;font-size:16px;font-weight:600;border:none;transition:all .2s}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-dark)}
+.btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.hero-schools{margin-top:44px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.school-tag{border:1px solid var(--line);border-radius:999px;padding:6px 16px;background:#fff;font-weight:600;color:var(--ink)}
+.hero-schools .sep{color:#c3ccd6}
+
+/* ============ 通用区块 ============ */
+.section{padding:88px 0}
+.section-head{max-width:680px;margin:0 auto 52px;text-align:center}
+.section-head h2{font-size:34px;font-weight:800;letter-spacing:.5px}
+.section-head p{margin-top:12px;font-size:16px;color:var(--muted)}
+.kicker{display:inline-block;font-size:13px;font-weight:700;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:14px}
+
+/* ============ 平台优势 ============ */
+.advantages{background:var(--bg-soft);border-bottom:1px solid var(--line)}
+.adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.adv-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;transition:box-shadow .2s,transform .2s}
+.adv-card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.adv-icon{width:44px;height:44px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.adv-card h3{font-size:17px;font-weight:700;margin-bottom:8px}
+.adv-card p{font-size:14px;color:var(--muted)}
+
+/* ============ 老师展示 ============ */
+.filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.filter-btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 20px;font-size:14px;color:var(--muted);transition:all .2s}
+.filter-btn:hover{border-color:var(--accent);color:var(--accent)}
+.filter-btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.teacher-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.teacher-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;gap:14px;transition:box-shadow .2s,transform .2s}
+.teacher-card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.teacher-top{display:flex;align-items:center;gap:16px}
+.teacher-avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--accent-soft);flex-shrink:0}
+.teacher-name{font-size:18px;font-weight:700}
+.teacher-school{font-size:14px;color:var(--accent);font-weight:600;margin-top:2px}
+.teacher-major{font-size:13px;color:var(--muted)}
+.subject-tags{display:flex;flex-wrap:wrap;gap:8px}
+.subject-tag{font-size:13px;color:var(--accent);background:var(--accent-soft);padding:3px 12px;border-radius:999px;font-weight:600}
+.teacher-grades{font-size:13px;color:var(--muted)}
+.teacher-intro{font-size:14px;color:var(--ink);border-top:1px dashed var(--line);padding-top:12px}
+.teacher-note{text-align:center;font-size:13px;color:var(--muted);margin-top:28px}
+.teacher-note a{color:var(--accent);font-weight:600}
+
+/* ============ 流程 ============ */
+.process{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:step}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;position:relative}
+.step::before{counter-increment:step;content:"0" counter(step);position:absolute;top:24px;right:26px;font-size:40px;font-weight:800;color:#e9eef5;line-height:1}
+.step h3{font-size:18px;font-weight:700;margin-bottom:10px;position:relative}
+.step p{font-size:14px;color:var(--muted);position:relative}
+
+/* ============ 预约表单 ============ */
+.apply{background:var(--bg)}
+.apply-card{max-width:680px;margin:0 auto;background:var(--bg-soft);border:1px solid var(--line);border-radius:16px;padding:44px 48px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+.field label{font-size:14px;font-weight:600}
+.field label .req{color:#d64545}
+.field input,.field select,.field textarea{border:1px solid var(--line);border-radius:10px;background:#fff;padding:12px 14px;font-size:15px;font-family:inherit;color:var(--ink);outline:none;transition:border-color .2s,box-shadow .2s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(31,90,214,.12)}
+.field textarea{resize:vertical;min-height:88px}
+.form-submit{margin-top:24px;width:100%;border-radius:10px;background:var(--accent);color:#fff;border:none;padding:15px;font-size:16px;font-weight:700;transition:background .2s}
+.form-submit:hover{background:var(--accent-dark)}
+.form-hint{text-align:center;font-size:13px;color:var(--muted);margin-top:14px}
+.form-error{display:none;background:#fdecec;color:#b33535;border:1px solid #f5c6c6;border-radius:10px;padding:12px 16px;font-size:14px;margin-bottom:18px}
+.form-success{display:none;text-align:center;padding:36px 8px}
+.form-success .ok-icon{width:56px;height:56px;border-radius:50%;background:#e7f6ec;color:#1d9e4f;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.form-success h3{font-size:22px;font-weight:800;margin-bottom:10px}
+.form-success p{color:var(--muted);font-size:15px}
+
+/* ============ 师资实力页 ============ */
+.strength-hero{padding:150px 0 80px;background:radial-gradient(900px 420px at 15% -10%,rgba(31,90,214,.08),transparent 60%),var(--bg);border-bottom:1px solid var(--line)}
+.strength-hero .wrap{max-width:840px;text-align:center}
+.strength-hero h1{font-size:52px;line-height:1.2;font-weight:800;letter-spacing:1px}
+.strength-hero h1 .num{color:var(--accent)}
+.strength-hero p{margin:22px auto 0;max-width:640px;font-size:17px;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:52px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px 20px;text-align:center}
+.stat b{display:block;font-size:34px;font-weight:800;color:var(--accent);line-height:1.2}
+.stat span{font-size:14px;color:var(--muted)}
+.school-sources{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.school-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;text-align:center}
+.school-card .mono{width:56px;height:56px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.school-card h3{font-size:19px;font-weight:700;margin-bottom:6px}
+.school-card p{font-size:14px;color:var(--muted)}
+.steps4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s4}
+.s4{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;position:relative}
+.s4::before{counter-increment:s4;content:"0" counter(s4);display:inline-block;font-size:13px;font-weight:800;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:2px 12px;margin-bottom:14px}
+.s4 h3{font-size:16px;font-weight:700;margin-bottom:8px}
+.s4 p{font-size:13px;color:var(--muted)}
+.award{max-width:640px;margin:0 auto;background:linear-gradient(180deg,var(--gold-soft),#fff);border:1px solid #ecd9a0;border-radius:16px;padding:44px 40px;text-align:center}
+.award-icon{width:64px;height:64px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.award h3{font-size:24px;font-weight:800;color:#8a6d1a;margin-bottom:10px}
+.award .award-from{font-size:15px;color:var(--muted);margin-bottom:6px}
+.award .award-time{font-size:13px;color:#b09a55}
+.strength-cta{text-align:center;padding:24px 0 0}
+.strength-cta p{color:var(--muted);margin-bottom:20px}
+
+/* ============ 页脚 ============ */
+.footer{border-top:1px solid var(--line);padding:48px 0 40px;background:var(--bg-soft)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px}
+.footer-brand svg{color:var(--accent)}
+.footer p{font-size:14px;color:var(--muted)}
+.footer-links{display:flex;gap:24px;font-size:14px;color:var(--muted)}
+.footer .copyright{width:100%;text-align:center;font-size:13px;color:#9aa7b4;margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}
+
+/* ============ 页面切换 ============ */
+.page{display:none}
+.page.active{display:block}
+
+/* ============ 响应式 ============ */
+@media (max-width:960px){
+  .adv-grid,.stats,.steps4{grid-template-columns:repeat(2,1fr)}
+  .teacher-grid{grid-template-columns:repeat(2,1fr)}
+  .school-sources{grid-template-columns:1fr;max-width:420px;margin:0 auto}
+}
+@media (max-width:720px){
+  html{scroll-padding-top:64px}
+  .nav-inner{height:60px}
+  .nav-links{display:none;position:absolute;top:60px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0;padding:8px 0}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:14px 24px;font-size:16px}
+  .nav-links a:hover{background:var(--bg-soft)}
+  .nav-cta{display:none}
+  .nav-toggle{display:inline-flex}
+  .hero,.strength-hero{padding:110px 0 64px}
+  .hero h1{font-size:38px}
+  .strength-hero h1{font-size:34px}
+  .hero-sub,.strength-hero p{font-size:16px}
+  .section{padding:64px 0}
+  .section-head h2{font-size:27px}
+  .adv-grid,.teacher-grid,.process-grid,.school-sources,.stats,.steps4{grid-template-columns:1fr}
+  .apply-card{padding:32px 24px}
+  .form-grid{grid-template-columns:1fr}
+  .award{padding:32px 24px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ 顶部导航 ============ -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#/" aria-label="学霸帮侬忙首页">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 3 2 8l10 5 10-5-10-5z"/>
+        <path d="M6 10.5V15c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/>
+        <path d="M22 8v6"/>
+      </svg>
+      <span>学霸帮侬忙</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#/" data-nav="home">首页</a>
+      <a href="#advantages" data-nav="home">平台优势</a>
+      <a href="#teacher-section" data-nav="home">师资展示</a>
+      <a href="#process" data-nav="home">找老师流程</a>
+      <a href="#/teachers" data-nav="strength">师资实力</a>
+      <a href="#apply" data-nav="home">联系我们</a>
+    </nav>
+    <a href="#apply" class="nav-cta">免费预约</a>
+    <button class="nav-toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M3 6h18M3 12h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- ============ 首页 ============ -->
+<div class="page active" id="page-home">
+
+  <!-- 主视觉 -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="hero-eyebrow">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg>
+        上海 · 985 高校学霸家教平台
+      </span>
+      <h1>"学霸帮侬忙"</h1>
+      <p class="hero-sub">上海杨浦区老牌家教平台,紧邻复旦运营5年。复旦大学、同济大学、华东师范大学等上海本地高校学霸,一对一上门或者线上辅导!</p>
+      <div class="hero-actions">
+        <a href="#apply" class="btn btn-primary">免费预约试听</a>
+        <a href="#teacher-section" class="btn btn-ghost">查看老师</a>
+      </div>
+      <div class="hero-schools">
+        <span class="school-tag">复旦大学</span>
+        <span class="sep">·</span>
+        <span class="school-tag">同济大学</span>
+        <span class="sep">·</span>
+        <span class="school-tag">华东师范大学</span>
+        <span class="sep">·</span>
+        <span class="school-tag">上海 985 高校</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 平台优势 -->
+  <section class="section advantages" id="advantages">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">为什么选我们</span>
+        <h2>5 年老牌,只做一件事:把 985 学霸送到家</h2>
+        <p>不海量铺老师,只精挑上海 985 高校里的好苗子,认真负责地教好每一个孩子。</p>
+      </div>
+      <div class="adv-grid">
+        <div class="adv-card">
+          <div class="adv-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </div>
+          <h3>5 年老牌平台</h3>
+          <p>深耕上海家教 5 年,服务过上千组家庭,口碑靠一届届家长传出来。</p>
+        </div>
+        <div class="adv-card">
+          <div class="adv-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>2000+ 学霸老师</h3>
+          <p>平台汇聚 2000+ 位上海 985 高校学霸,覆盖各学科、各年级。</p>
+        </div>
+        <div class="adv-card">
+          <div class="adv-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11 5 15l4 4 4-4"/><circle cx="15" cy="13" r="6"/><path d="M19.5 17.5 22 20"/></svg>
+          </div>
+          <h3>学霸精心挑选</h3>
+          <p>学历成绩核实、面试、试讲、培训四步筛选,留下来的都是能教、会教的。</p>
+        </div>
+        <div class="adv-card">
+          <div class="adv-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 8l10 5 10-5-10-5z"/><path d="M6 10.5V15c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 8v6"/></svg>
+          </div>
+          <h3>只做 985 本地高校</h3>
+          <p>只与复旦大学、同济大学、华东师范大学等上海 985 高校学霸合作。</p>
+        </div>
+        <div class="adv-card">
+          <div class="adv-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3>紧邻复旦 · 杨浦本地</h3>
+          <p>扎根上海杨浦区、紧邻复旦大学,上门方便,老师资源就在家门口。</p>
+        </div>
+        <div class="adv-card">
+          <div class="adv-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3>免费匹配 · 上门或线上</h3>
+          <p>预约试听不收费,支持一对一上门或线上辅导,满意再合作。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 老师展示 -->
+  <section class="section" id="teacher-section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">师资展示</span>
+        <h2>我们的老师</h2>
+        <p>以下为平台部分老师示例,点击筛选可快速查看对应科目。</p>
+      </div>
+      <div class="filters" id="filters" role="tablist" aria-label="按科目筛选老师"></div>
+      <div class="teacher-grid" id="teacherGrid"></div>
+      <p class="teacher-note">平台共有 2000+ 学霸老师,<a href="#/teachers">查看师资实力</a> · 没有合适的?<a href="#apply">填写需求</a>,为您精准匹配。</p>
+    </div>
+  </section>
+
+  <!-- 找老师流程 -->
+  <section class="section process" id="process">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">简单三步</span>
+        <h2>找老师就这么简单</h2>
+        <p>全程免费,试听满意再合作。</p>
+      </div>
+      <div class="process-grid">
+        <div class="step">
+          <h3>填写需求</h3>
+          <p>告诉我们孩子的年级、科目与期望,一分钟即可完成。</p>
+        </div>
+        <div class="step">
+          <h3>精准匹配</h3>
+          <p>平台结合需求匹配合适的 985 学霸老师,并安排沟通。</p>
+        </div>
+        <div class="step">
+          <h3>免费试听</h3>
+          <p>先试听一节课,满意再正式合作,不合适可免费更换。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 预约表单(嵌入问卷星登记表) -->
+  <section class="section apply" id="apply">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">联系我们</span>
+        <h2>预约免费试听</h2>
+        <p>请填写下方学情信息登记表,提交后我们会尽快联系您,为您精准匹配 985 学霸老师。</p>
+      </div>
+      <div class="apply-card" style="max-width:880px;padding:0;overflow:hidden">
+        <iframe src="https://v.wjx.cn/vm/ehxAcYd.aspx" width="100%" height="1500" frameborder="0" scrolling="auto" style="display:block;border:none" title="学霸优选学员学情信息登记表" loading="lazy"></iframe>
+      </div>
+      <p class="form-hint" style="margin-top:18px">您的信息仅用于为您匹配老师,平台承诺严格保护个人隐私。</p>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============ 师资实力页 ============ -->
+<div class="page" id="page-strength">
+
+  <section class="strength-hero">
+    <div class="wrap">
+      <span class="hero-eyebrow">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg>
+        师资实力 · 上海杨浦区老牌家教平台
+      </span>
+      <h1><span class="num">2000+</span> 学霸老师,精心挑选</h1>
+      <p>上海杨浦区老牌家教平台,紧邻复旦运营 5 年。平台汇聚复旦大学、同济大学、华东师范大学等上海 985 本地高校学霸,所有老师都经过层层筛选与考核。</p>
+      <div class="stats">
+        <div class="stat"><b>2000+</b><span>学霸老师</span></div>
+        <div class="stat"><b>5 年</b><span>老牌运营</span></div>
+        <div class="stat"><b>985</b><span>本地高校师资</span></div>
+        <div class="stat"><b>100%</b><span>精心挑选</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">师资来源</span>
+        <h2>只与上海 985 本地高校学霸合作</h2>
+        <p>紧邻复旦大学,师资资源就在家门口。</p>
+      </div>
+      <div class="school-sources">
+        <div class="school-card">
+          <div class="mono">复</div>
+          <h3>复旦大学</h3>
+          <p>数学、物理、化学、医学等各学科拔尖学霸</p>
+        </div>
+        <div class="school-card">
+          <div class="mono">同</div>
+          <h3>同济大学</h3>
+          <p>理工科见长,数理化、英语师资储备充足</p>
+        </div>
+        <div class="school-card">
+          <div class="mono">华</div>
+          <h3>华东师范大学</h3>
+          <p>师范科班出身,懂教法、更懂孩子</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">精选标准</span>
+        <h2>每一个老师,都经过四步层层筛选</h2>
+        <p>2000+ 学霸的背后,是毫不含糊的挑选标准。</p>
+      </div>
+      <div class="steps4">
+        <div class="s4">
+          <h3>学历成绩核实</h3>
+          <p>核验 985 高校在读身份与真实成绩,确保真学霸。</p>
+        </div>
+        <div class="s4">
+          <h3>面试考核</h3>
+          <p>考察表达、逻辑与责任心,筛掉只会做题不会教的。</p>
+        </div>
+        <div class="s4">
+          <h3>试讲考核</h3>
+          <p>现场试讲打分,检验课堂掌控与讲解能力。</p>
+        </div>
+        <div class="s4">
+          <h3>岗前培训</h3>
+          <p>统一培训教学规范与沟通方法,对每一位孩子负责。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">平台荣誉</span>
+        <h2>政府认可,值得信赖</h2>
+        <p>平台实力获得主管部门肯定。</p>
+      </div>
+      <div class="award">
+        <div class="award-icon">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></svg>
+        </div>
+        <h3>优胜奖</h3>
+        <p class="award-from">杨浦区人力资源和社会保障局</p>
+        <p class="award-time">— 官方颁发的优胜奖荣誉 —</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--bg-soft);border-top:1px solid var(--line)">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">代表老师</span>
+        <h2>部分老师一览</h2>
+        <p>平台 2000+ 老师中的几位代表,更多老师欢迎咨询。</p>
+      </div>
+      <div class="teacher-grid" id="teacherGrid2"></div>
+      <div class="strength-cta">
+        <p>想为您的孩子匹配一位合适的 985 学霸?</p>
+        <a href="#apply" class="btn btn-primary">免费预约试听</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============ 页脚 ============ -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 3 2 8l10 5 10-5-10-5z"/>
+        <path d="M6 10.5V15c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/>
+        <path d="M22 8v6"/>
+      </svg>
+      <span>学霸帮侬忙</span>
+    </div>
+    <p>上海 985 高校学霸一对一上门 / 线上辅导</p>
+    <div class="footer-links">
+      <span>复旦 · 同济 · 华东师大</span>
+    </div>
+    <div class="copyright">© 2026 学霸帮侬忙 · 上海杨浦区老牌家教平台</div>
+  </div>
+</footer>
+
+<script>
+/* ============ 老师数据(示例,上线前请替换为真实老师信息) ============ */
+var teachers = [
+  { id:1, name:"陈老师", school:"复旦大学", major:"数学与应用数学", subjects:["数学","物理"], grades:"高中数学 · 物理", intro:"高考数学 145+,擅长帮学生搭建解题思路与知识框架,讲课清晰有条理。", avatar:"https://aka.doubaocdn.com/s/SwV5XvlBzQ" },
+  { id:2, name:"李老师", school:"同济大学", major:"土木工程", subjects:["数学","物理","化学"], grades:"初中数理化", intro:"耐心细致,擅长基础巩固与学习方法引导,特别受低年级孩子欢迎。", avatar:"https://aka.doubaocdn.com/s/eBwv2ChbZy" },
+  { id:3, name:"王老师", school:"华东师范大学", major:"汉语言文学", subjects:["语文"], grades:"小学 · 初中 · 高中语文", intro:"师范科班出身,擅长阅读与写作训练,课堂生动,注重语文素养积累。", avatar:"https://aka.doubaocdn.com/s/OmHHVyd86X" },
+  { id:4, name:"张老师", school:"复旦大学", major:"临床医学", subjects:["化学","生物"], grades:"高中化学 · 生物", intro:"擅长理科综合,用体系化方法帮学生吃透重难点,笔记整理是一绝。", avatar:"https://aka.doubaocdn.com/s/0FUOjIwA8G" },
+  { id:5, name:"赵老师", school:"同济大学", major:"英语", subjects:["英语"], grades:"小学 · 初中 · 高中英语", intro:"英语专业出身,口语流利,擅长语法梳理与应试技巧,提分见效快。", avatar:"https://aka.doubaocdn.com/s/aDbuoz6LBV" },
+  { id:6, name:"孙老师", school:"华东师范大学", major:"数学与应用数学", subjects:["数学"], grades:"小学 · 初中数学", intro:"师范专业,擅长启发式教学,帮孩子打牢数学基础,建立学习信心。", avatar:"https://aka.doubaocdn.com/s/R38cRVGnSx" }
+];
+
+function cardHtml(t){
+  return (
+    '<article class="teacher-card">' +
+      '<div class="teacher-top">' +
+        '<img class="teacher-avatar" src="' + t.avatar + '" alt="' + t.name + '照片">' +
+        '<div>' +
+          '<div class="teacher-name">' + t.name + '</div>' +
+          '<div class="teacher-school">' + t.school + '</div>' +
+          '<div class="teacher-major">' + t.major + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="subject-tags">' + t.subjects.map(function(s){ return '<span class="subject-tag">' + s + '</span>'; }).join("") + '</div>' +
+      '<div class="teacher-grades">' + t.grades + '</div>' +
+      '<p class="teacher-intro">' + t.intro + '</p>' +
+    '</article>'
+  );
+}
+
+/* 首页老师:支持筛选 */
+var teacherGrid = document.getElementById("teacherGrid");
+var filtersWrap = document.getElementById("filters");
+var currentFilter = "全部";
+
+function renderTeachers(){
+  var list = currentFilter === "全部" ? teachers : teachers.filter(function(t){ return t.subjects.indexOf(currentFilter) !== -1; });
+  teacherGrid.innerHTML = list.map(cardHtml).join("");
+}
+function renderFilters(){
+  var all = ["全部"];
+  teachers.forEach(function(t){ t.subjects.forEach(function(s){ if (all.indexOf(s) === -1) all.push(s); }); });
+  filtersWrap.innerHTML = all.map(function(s){
+    return '<button class="filter-btn' + (s === currentFilter ? " active" : "") + '" data-filter="' + s + '" role="tab" aria-selected="' + (s === currentFilter) + '">' + s + '</button>';
+  }).join("");
+}
+filtersWrap.addEventListener("click", function(e){
+  var btn = e.target.closest(".filter-btn");
+  if (!btn) return;
+  currentFilter = btn.getAttribute("data-filter");
+  renderFilters();
+  renderTeachers();
+});
+
+/* 师资实力页老师 */
+document.getElementById("teacherGrid2").innerHTML = teachers.map(cardHtml).join("");
+
+renderFilters();
+renderTeachers();
+
+/* ============ 页面切换(hash 路由) ============ */
+var homePage = document.getElementById("page-home");
+var strengthPage = document.getElementById("page-strength");
+var navHomeLinks = document.querySelectorAll('[data-nav="home"]');
+var navStrengthLinks = document.querySelectorAll('[data-nav="strength"]');
+
+function scrollToEl(id){
+  var el = document.getElementById(id);
+  if (!el) return;
+  var y = el.getBoundingClientRect().top + window.pageYOffset - 72;
+  window.scrollTo({ top: y, behavior: "smooth" });
+}
+
+function router(){
+  var hash = location.hash || "#/";
+  if (hash.indexOf("#/teachers") === 0) {
+    strengthPage.classList.add("active");
+    homePage.classList.remove("active");
+    navHomeLinks.forEach(function(a){ a.classList.remove("active"); });
+    navStrengthLinks.forEach(function(a){ a.classList.add("active"); });
+    window.scrollTo(0, 0);
+  } else {
+    homePage.classList.add("active");
+    strengthPage.classList.remove("active");
+    navStrengthLinks.forEach(function(a){ a.classList.remove("active"); });
+    navHomeLinks.forEach(function(a){ a.classList.add("active"); });
+    /* 处理首页内锚点:等待首页显示后再滚动 */
+    var anchor = hash.replace("#/", "");
+    if (anchor && anchor !== "" && document.getElementById(anchor)) {
+      setTimeout(function(){ scrollToEl(anchor); }, 30);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }
+  closeMenu();
+}
+window.addEventListener("hashchange", router);
+router();
+
+/* ============ 移动端菜单 ============ */
+var navToggle = document.getElementById("navToggle");
+var navLinks = document.getElementById("navLinks");
+function closeMenu(){
+  navLinks.classList.remove("open");
+  navToggle.setAttribute("aria-expanded", "false");
+}
+navToggle.addEventListener("click", function(){
+  var open = navLinks.classList.toggle("open");
+  navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+});
+navLinks.addEventListener("click", function(e){
+  if (e.target.tagName === "A") closeMenu();
+});
+
+/* ============ 预约表单 ============ */
+/* 已嵌入问卷星《学霸优选学员学情信息登记表》,
+   家长提交的数据自动汇总到问卷星后台,无需前端逻辑。 */
+</script>
+</body>
+</html>
